@@ -1,0 +1,23 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+
+  win:
+    cmds:
+      - go build -o $HOME/bin/contract.exe
+  nix:
+    cmds:
+      - go build -o $HOME/go/bin/contract
+
+  check:
+    cmds:
+      - pre-commit run --all-files
+      - go mod tidy
+      - go vet ./...
+      - go test ./...
+      - goreleaser healthcheck

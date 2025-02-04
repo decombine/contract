@@ -1,0 +1,7 @@
+RootDescriptionShort = "Crear y gestionar Contratos Legales Inteligentes"
+
+RootDescriptionLong = """
+Contract es una herramienta para crear y gestionar contratos legales inteligentes basados en la especificación Decombine.
+
+Los contratos legales inteligentes creados con Contract se pueden utilizar para automatizar la ejecución de acuerdos arbitrarios con software integrado.
+"""

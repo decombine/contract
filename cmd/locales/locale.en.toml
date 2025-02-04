@@ -1,0 +1,66 @@
+RootDescriptionShort = "Create and manage Smart Legal Contracts"
+
+RootDescriptionLong = """
+   #####*********
+##########*********      Contract is a tool to create and manage Smart Legal Contracts.
+########    ********
+ ####         ******     Smart Legal Contracts created with Contract can be used to automate the
+        ****             execution of arbitrary agreements with embedded software.
+######         ***
+########    ********     Learn more at https://decombine.com
+ #########**********
+   #########******
+"""
+
+CreateExample = """
+	Create a Contract from a file, stdin, or Git repository.
+
+	JSON and YAML formats are accepted.
+"""
+
+CreateDescriptionShort = "Create a new Smart Legal Contract from an existing template"
+
+CreateDescriptionLong = """
+Create a Contract from a file, stdin, or Git repository. If using Git, the contract must be publicly accessible
+or a Personal Access Token (PAT) must be provided to access private repositories.
+"""
+
+InitREADME = """
+# Smart Legal Contract
+
+This is a Smart Legal Contract project created with [Contract](https://decombine.com).
+
+## Getting Started
+
+The example contract in this repository can be deployed to the Decombine Network using the following command:
+
+```bash
+  CONTRACT_DIR=""
+
+  contract create $CONTRACT_DIR
+```
+
+```powershell
+  $ContractDir = ""
+
+  contract create $ContractDir
+```
+
+"""
+
+InitContractREADME = """
+# Example Contract
+
+This is an example Smart Legal Contract created with [Contract](https://decombine.com).
+
+## Contract Files
+
+The same Contract has been created in a variety of formats. You can modify the template of
+your preferred format and deploy it. Only one file is required, so choose the one that best
+suits your preference or workflows.
+
+- [JSON](contract.json)
+- [YAML](contract.yaml)
+- [TOML](contract.toml)
+
+"""
