@@ -4,8 +4,10 @@
 
 ## Overview
 
-Contract is a tool to create and manage Decombine Smart Legal Contracts (SLC). You can learn about Decombine SLC
-[here](https://decombine.com).
+Contract is a tool to create and manage Decombine Smart Legal Contracts (SLC). You can learn about Decombine SLC at
+[decombine.com](https://decombine.com). 
+
+- [Decombine SLC SDK](https://github.com/decombine/slc)
 
 ## Configuration
 

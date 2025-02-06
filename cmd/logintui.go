@@ -81,7 +81,7 @@ func loginDeviceFlowWithTea() tea.Msg {
 	ctx := context.Background()
 	var options []rp.Option
 	//options = append(options, rp.WithPKCE(cookieHandler))
-	provider, err := rp.NewRelyingPartyOIDC(ctx, DecombineNetwork.Domain, DecombineNetwork.ClientID, "", "", scopes, options...)
+	provider, err := rp.NewRelyingPartyOIDC(ctx, DecombineNetwork.Issuer, DecombineNetwork.ClientID, "", "", scopes, options...)
 	if err != nil {
 		return errMsg{err}
 	}

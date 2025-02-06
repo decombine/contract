@@ -59,7 +59,7 @@ var DecombineNetwork = slc.Network{
 	API:               "https://api.decombine.com",
 	URL:               "https://decombine.com",
 	ClientID:          "304073732412997862",
-	Domain:            "https://authentication.decombine.com",
+	Issuer:            "https://authentication.decombine.com",
 	DiscoveryEndpoint: "https://authentication.decombine.com/.well-known/openid-configuration",
 }
 

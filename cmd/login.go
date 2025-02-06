@@ -125,7 +125,7 @@ func loginDeviceFlow(name string) (*oidc.AccessTokenResponse, error) {
 	}
 
 	var options []rp.Option
-	provider, err := rp.NewRelyingPartyOIDC(ctx, network.Domain, network.ClientID, "", "", scopes, options...)
+	provider, err := rp.NewRelyingPartyOIDC(ctx, network.Issuer, network.ClientID, "", "", scopes, options...)
 
 	if err != nil {
 		return nil, err

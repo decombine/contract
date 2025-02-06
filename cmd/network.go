@@ -18,11 +18,11 @@ func init() {
 	networkCmd.AddCommand(networkListCmd)
 	setNetworkCmd.Flags().StringP("network", "n", "", "The name of the Network")
 	addNetworkCmd.Flags().StringP("network", "n", "", "The name of the Network")
-	addNetworkCmd.Flags().StringP("api", "p", "", "The API for the Network")
+	addNetworkCmd.Flags().StringP("api", "p", "", "The API hostname for the Network")
 	addNetworkCmd.Flags().StringP("url", "u", "", "The URL of the Network")
-	addNetworkCmd.Flags().StringP("client-id", "c", "", "The Client ID for the Network")
-	addNetworkCmd.Flags().StringP("domain", "d", "", "The Domain for the Network")
-	addNetworkCmd.Flags().StringP("oidc", "a", "", "The Discovery Endpoint for the Network")
+	addNetworkCmd.Flags().StringP("client-id", "c", "", "The Client ID for the Network used in OIDC")
+	addNetworkCmd.Flags().StringP("issuer", "d", "", "The Issuer for the Network used in OIDC")
+	addNetworkCmd.Flags().StringP("oidc", "a", "", "The OIDC Discovery Endpoint for the Network")
 	addNetworkCmd.Flags().StringP("output", "o", "json", "Define the output format for the command (json, yaml, toml)")
 }
 
@@ -45,9 +45,9 @@ func addNetworkExecute(cmd *cobra.Command, args []string) error {
 	api := cmd.Flags().Lookup("api").Value.String()
 	url := cmd.Flags().Lookup("url").Value.String()
 	clientID := cmd.Flags().Lookup("client-id").Value.String()
-	domain := cmd.Flags().Lookup("domain").Value.String()
+	issuer := cmd.Flags().Lookup("issuer").Value.String()
 	oidc := cmd.Flags().Lookup("oidc").Value.String()
-	err := addNetwork(name, api, url, clientID, domain, oidc)
+	err := addNetwork(name, api, url, clientID, issuer, oidc)
 	if err != nil {
 		return err
 	}
@@ -174,7 +174,7 @@ func printNetwork(n slc.Network) {
 	fmt.Printf("API: %s\n", n.API)
 	fmt.Printf("URL: %s\n", n.URL)
 	fmt.Printf("Client ID: %s\n", n.ClientID)
-	fmt.Printf("Domain: %s\n", n.Domain)
+	fmt.Printf("Issuer: %s\n", n.Issuer)
 	fmt.Printf("Discovery Endpoint: %s\n", n.DiscoveryEndpoint)
 }
 
@@ -214,8 +214,8 @@ func Networks() []slc.Network {
 	return config.Networks
 }
 
-func addNetwork(name, api, url, clientID, domain, oidc string) error {
-	err := checkNetworkValues(name, api, url, clientID, domain, oidc)
+func addNetwork(name, api, url, clientID, issuer, oidc string) error {
+	err := checkNetworkValues(name, api, url, clientID, issuer, oidc)
 	if err != nil {
 		return err
 	}
@@ -225,7 +225,7 @@ func addNetwork(name, api, url, clientID, domain, oidc string) error {
 		API:               api,
 		URL:               url,
 		ClientID:          clientID,
-		Domain:            domain,
+		Issuer:            issuer,
 		DiscoveryEndpoint: oidc,
 	})
 	cfg := viper.ConfigFileUsed()
@@ -253,7 +253,7 @@ func addNetwork(name, api, url, clientID, domain, oidc string) error {
 	return nil
 }
 
-func checkNetworkValues(name, api, url, clientID, domain, oidc string) error {
+func checkNetworkValues(name, api, url, clientID, issuer, oidc string) error {
 	if name == "" {
 		return fmt.Errorf("name is required")
 	}
@@ -266,8 +266,8 @@ func checkNetworkValues(name, api, url, clientID, domain, oidc string) error {
 	if clientID == "" {
 		return fmt.Errorf("client id is required")
 	}
-	if domain == "" {
-		return fmt.Errorf("domain is required")
+	if issuer == "" {
+		return fmt.Errorf("issuer is required")
 	}
 	if oidc == "" {
 		return fmt.Errorf("discovery endpoint is required")
