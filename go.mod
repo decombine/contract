@@ -7,7 +7,6 @@ require (
 	github.com/charmbracelet/bubbles v0.20.0
 	github.com/charmbracelet/bubbletea v1.2.4
 	github.com/charmbracelet/lipgloss v1.0.0
-	github.com/decombine/slc v0.0.0-unpublished
 	github.com/fluxcd/kustomize-controller/api v1.4.0
 	github.com/go-playground/validator/v10 v10.24.0
 	github.com/goccy/go-yaml v1.15.16
@@ -23,6 +22,7 @@ require (
 	github.com/charmbracelet/x/ansi v0.4.5 // indirect
 	github.com/charmbracelet/x/term v0.2.1 // indirect
 	github.com/cloudevents/sdk-go/v2 v2.15.2 // indirect
+	github.com/decombine/slc v0.1.0-alpha // indirect
 	github.com/erikgeiser/coninput v0.0.0-20211004153227-1c3628e74d0f // indirect
 	github.com/fluxcd/pkg/apis/kustomize v1.6.1 // indirect
 	github.com/fluxcd/pkg/apis/meta v1.6.1 // indirect
@@ -92,5 +92,3 @@ require (
 	sigs.k8s.io/structured-merge-diff/v4 v4.4.2 // indirect
 	sigs.k8s.io/yaml v1.4.0 // indirect
 )
-
-replace github.com/decombine/slc v0.0.0-unpublished => ../slc
