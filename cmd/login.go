@@ -4,16 +4,17 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/charmbracelet/lipgloss"
-	"github.com/decombine/slc"
-	"github.com/spf13/cobra"
-	"github.com/zitadel/oidc/v3/pkg/client/rp"
-	"github.com/zitadel/oidc/v3/pkg/oidc"
 	"io"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
+
+	"github.com/charmbracelet/lipgloss"
+	"github.com/decombine/slc"
+	"github.com/spf13/cobra"
+	"github.com/zitadel/oidc/v3/pkg/client/rp"
+	"github.com/zitadel/oidc/v3/pkg/oidc"
 )
 
 var (
