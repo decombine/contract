@@ -1,9 +1,11 @@
 name: goreleaser
 
 on:
-  push:
-    tags:
-      - "*"
+  # Using workflow_dispatch to allow for only as necessary releases during SLSA3+ cutover.
+  workflow_dispatch:
+#  push:
+#    tags:
+#      - "*"
 
 permissions:
   contents: write
