@@ -4,10 +4,11 @@ import (
 	"bufio"
 	"errors"
 	"fmt"
-	"github.com/go-playground/validator/v10"
-	"github.com/spf13/cobra"
 	"os"
 	"strings"
+
+	"github.com/go-playground/validator/v10"
+	"github.com/spf13/cobra"
 )
 
 var validate *validator.Validate

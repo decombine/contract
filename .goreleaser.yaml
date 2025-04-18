@@ -19,6 +19,10 @@ builds:
       - linux
       - windows
       - darwin
+    # Exclude amd64 to start building with SLSA3+
+    ignore:
+      - goos: linux
+        goarch: amd64
 
 archives:
   - formats: [ 'tar.gz' ]

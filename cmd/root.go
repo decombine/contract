@@ -18,6 +18,9 @@ package cmd
 import (
 	"embed"
 	"fmt"
+	"os"
+	"time"
+
 	"github.com/BurntSushi/toml"
 	"github.com/charmbracelet/lipgloss"
 	"github.com/decombine/slc"
@@ -25,9 +28,6 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	"golang.org/x/text/language"
-	"net/http"
-	"os"
-	"time"
 )
 
 //go:embed locales/*
@@ -58,23 +58,14 @@ var DecombineNetwork = slc.Network{
 	Name:              "decombine",
 	API:               "https://api.decombine.com",
 	URL:               "https://decombine.com",
-	ClientID:          "304073732412997862",
-	Issuer:            "https://authentication.decombine.com",
-	DiscoveryEndpoint: "https://authentication.decombine.com/.well-known/openid-configuration",
+	ClientID:          "314499707793638369",
+	Issuer:            "https://auth.decombine.com",
+	DiscoveryEndpoint: "https://auth.decombine.com/.well-known/openid-configuration",
 }
 
 type NetworkClient struct {
 	Address string
 	Timeout time.Duration
-}
-
-var DecombineClient = NetworkClient{
-	Address: "http://api.decombine.local:8025",
-	Timeout: 10 * time.Second,
-}
-
-var httpClient = &http.Client{
-	Timeout: DecombineClient.Timeout,
 }
 
 // rootCmd represents the base command when called without any subcommands

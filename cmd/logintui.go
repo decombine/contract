@@ -3,11 +3,12 @@ package cmd
 import (
 	"context"
 	"fmt"
+	"time"
+
 	"github.com/charmbracelet/bubbles/spinner"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 	"github.com/zitadel/oidc/v3/pkg/client/rp"
-	"time"
 )
 
 type errMsg struct{ err error }

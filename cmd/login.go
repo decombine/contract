@@ -4,16 +4,17 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/charmbracelet/lipgloss"
-	"github.com/decombine/slc"
-	"github.com/spf13/cobra"
-	"github.com/zitadel/oidc/v3/pkg/client/rp"
-	"github.com/zitadel/oidc/v3/pkg/oidc"
 	"io"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
+
+	"github.com/charmbracelet/lipgloss"
+	"github.com/decombine/slc"
+	"github.com/spf13/cobra"
+	"github.com/zitadel/oidc/v3/pkg/client/rp"
+	"github.com/zitadel/oidc/v3/pkg/oidc"
 )
 
 var (
@@ -95,6 +96,10 @@ func networkDetails(name string) (slc.Network, error) {
 	}
 	for _, n := range config.Networks {
 		if n.Name == name {
+			err = checkNetworkValues(n.Name, n.API, n.URL, n.ClientID, n.Issuer, n.DiscoveryEndpoint)
+			if err != nil {
+				return slc.Network{}, err
+			}
 			return n, nil
 		}
 	}
