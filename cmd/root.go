@@ -18,7 +18,6 @@ package cmd
 import (
 	"embed"
 	"fmt"
-	"net/http"
 	"os"
 	"time"
 
@@ -59,7 +58,7 @@ var DecombineNetwork = slc.Network{
 	Name:              "decombine",
 	API:               "https://api.decombine.com",
 	URL:               "https://decombine.com",
-	ClientID:          "314914854450233349",
+	ClientID:          "314499707793638369",
 	Issuer:            "https://auth.decombine.com",
 	DiscoveryEndpoint: "https://auth.decombine.com/.well-known/openid-configuration",
 }
@@ -67,15 +66,6 @@ var DecombineNetwork = slc.Network{
 type NetworkClient struct {
 	Address string
 	Timeout time.Duration
-}
-
-var DecombineClient = NetworkClient{
-	Address: "http://api.decombine.local:8025",
-	Timeout: 10 * time.Second,
-}
-
-var httpClient = &http.Client{
-	Timeout: DecombineClient.Timeout,
 }
 
 // rootCmd represents the base command when called without any subcommands

@@ -96,6 +96,10 @@ func networkDetails(name string) (slc.Network, error) {
 	}
 	for _, n := range config.Networks {
 		if n.Name == name {
+			err = checkNetworkValues(n.Name, n.API, n.URL, n.ClientID, n.Issuer, n.DiscoveryEndpoint)
+			if err != nil {
+				return slc.Network{}, err
+			}
 			return n, nil
 		}
 	}
