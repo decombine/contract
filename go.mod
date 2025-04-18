@@ -7,7 +7,7 @@ require (
 	github.com/charmbracelet/bubbles v0.21.0
 	github.com/charmbracelet/bubbletea v1.3.4
 	github.com/charmbracelet/lipgloss v1.1.0
-	github.com/decombine/slc v0.2.1-alpha
+	github.com/decombine/slc v0.2.2-alpha
 	github.com/fluxcd/kustomize-controller/api v1.5.1
 	github.com/go-playground/validator/v10 v10.26.0
 	github.com/goccy/go-yaml v1.17.1
@@ -36,7 +36,7 @@ require (
 	github.com/fluxcd/pkg/apis/meta v1.10.0 // indirect
 	github.com/fsnotify/fsnotify v1.9.0 // indirect
 	github.com/fxamacker/cbor/v2 v2.8.0 // indirect
-	github.com/gabriel-vasile/mimetype v1.4.8 // indirect
+	github.com/gabriel-vasile/mimetype v1.4.9 // indirect
 	github.com/go-ini/ini v1.67.0 // indirect
 	github.com/go-jose/go-jose/v4 v4.1.0 // indirect
 	github.com/go-logr/logr v1.4.2 // indirect
@@ -76,8 +76,8 @@ require (
 	github.com/muesli/termenv v0.16.0 // indirect
 	github.com/muhlemmer/gu v0.3.1 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
-	github.com/nats-io/nats.go v1.41.1 // indirect
-	github.com/nats-io/nkeys v0.4.10 // indirect
+	github.com/nats-io/nats.go v1.41.2 // indirect
+	github.com/nats-io/nkeys v0.4.11 // indirect
 	github.com/nats-io/nuid v1.0.1 // indirect
 	github.com/open-policy-agent/opa v1.3.0 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.4 // indirect
