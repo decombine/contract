@@ -48,7 +48,7 @@ func loginExecute(cmd *cobra.Command, args []string) error {
 	if name == "" {
 		cfg, err := Config()
 		if err != nil {
-			fmt.Printf(helpStyle("No configuration file found. Consider running contract init config."))
+			fmt.Print(helpStyle("No configuration file found. Consider running contract init config."))
 			return err
 		}
 		var netNames []string
@@ -58,7 +58,7 @@ func loginExecute(cmd *cobra.Command, args []string) error {
 		fmt.Printf("Please provide a network name with the -n flag.")
 		fmt.Printf("The following Networks were found in your configuration file: " + "\n\n")
 		for _, n := range netNames {
-			fmt.Printf(n + "\n")
+			fmt.Printf("%s\n", n)
 		}
 		return err
 	}
@@ -68,7 +68,7 @@ func loginExecute(cmd *cobra.Command, args []string) error {
 		if err != nil {
 			return err
 		}
-		fmt.Printf(successStyle.Render("Success! Authenticated to Network."))
+		fmt.Print(successStyle.Render("Success! Authenticated to Network."))
 		// Store the token on the FS
 		err = storeResponse(name, token)
 		if err != nil {
@@ -135,7 +135,7 @@ func loginDeviceFlow(name string) (*oidc.AccessTokenResponse, error) {
 	if err != nil {
 		return nil, err
 	}
-	fmt.Printf(loginStyle.Render("Starting device flow authentication..."))
+	fmt.Print(loginStyle.Render("Starting device flow authentication..."))
 	resp, err := rp.DeviceAuthorization(ctx, scopes, provider, nil)
 	if err != nil {
 		return nil, err

@@ -1,0 +1,11 @@
+language: en
+defaultContractFileType: json
+defaultNetwork: decombine
+networks:
+- name: decombine
+  api: https://api.decombine.com
+  url: https://decombine.com
+  eventUrl: ""
+  clientId: "314499707793638369"
+  issuer: https://auth.decombine.com
+  discoveryEndpoint: https://auth.decombine.com/.well-known/openid-configuration

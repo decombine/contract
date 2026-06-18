@@ -38,7 +38,7 @@ the --contract flag, or even repeated --contracts flags to validate multiple Sma
 
 	Run: func(cmd *cobra.Command, args []string) {
 
-		//validate := validator.New(validator.WithRequiredStructEnabled())
+		// validate := validator.New(validator.WithRequiredStructEnabled())
 		single, _ := cmd.Flags().GetString("contract")
 		multi, _ := cmd.Flags().GetStringArray("contracts")
 
@@ -47,19 +47,19 @@ the --contract flag, or even repeated --contracts flags to validate multiple Sma
 				for _, c := range args {
 					s, err := getContractSource(c)
 					if err != nil {
-						fmt.Printf(ErrStyle.Render("error determining source type (file or url) of input %s: %v\n", c, err.Error()))
+						fmt.Print(ErrStyle.Render(fmt.Sprintf("error determining source type (file or url) of input %s: %v\n", c, err.Error())))
 					}
 					selectValidationStrategy(s, c)
 				}
 				return
 			}
-			//fmt.Printf(ErrStyle.Render("Error: no contracts to validate"))
+			// fmt.Printf(ErrStyle.Render("Error: no contracts to validate"))
 		}
 
 		if single != "" {
 			s, err := getContractSource(single)
 			if err != nil {
-				fmt.Printf(ErrStyle.Render("error determining source type (file or url) of input %s: %v\n", single, err.Error()))
+				fmt.Print(ErrStyle.Render(fmt.Sprintf("error determining source type (file or url) of input %s: %v\n", single, err.Error())))
 			}
 			selectValidationStrategy(s, single)
 			return
@@ -69,7 +69,7 @@ the --contract flag, or even repeated --contracts flags to validate multiple Sma
 			for _, c := range multi {
 				s, err := getContractSource(c)
 				if err != nil {
-					fmt.Printf(ErrStyle.Render("error determining source type (file or url) of input %s: %v\n", c, err.Error()))
+					fmt.Print(ErrStyle.Render(fmt.Sprintf("error determining source type (file or url) of input %s: %v\n", c, err.Error())))
 				}
 				selectValidationStrategy(s, c)
 				return
@@ -100,7 +100,7 @@ the --contract flag, or even repeated --contracts flags to validate multiple Sma
 			inputs = append(inputs, piece)
 			s, err := getContractSource(piece)
 			if err != nil {
-				fmt.Printf(ErrStyle.Render("error determining source type (file or url) of input %s: %v\n", s, err.Error()))
+				fmt.Print(ErrStyle.Render(fmt.Sprintf("error determining source type (file or url) of input %s: %v\n", s, err.Error())))
 				return
 			}
 			selectValidationStrategy(s, piece)
